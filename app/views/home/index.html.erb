@@ -3,3 +3,7 @@ Welcome <%= current_user.name %>
 <% else %>
 <%= link_to "Login to Github", "/auth/github" %>
 <% end %>
+
+<% if current_user %>
+<%= link_to "Logout", '/logout' %>
+<% end %>
