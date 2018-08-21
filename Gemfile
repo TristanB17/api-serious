@@ -31,6 +31,7 @@ gem 'omniauth-github'
 gem 'figaro'
 gem 'faraday'
 gem 'bootstrap-sass'
+gem 'launchy'
 
 
 # Use Capistrano for deployment
