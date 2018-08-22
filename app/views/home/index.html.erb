@@ -3,7 +3,7 @@ Welcome <%= current_user.name %><br>
 <img src="<%= current_user.image %>"><br>
 <%= link_to 'followers', followers_path %><br>
 <%= link_to 'following', following_path %><br>
-<h2>Starred Repos: <%= @starred_repos.length %></h2><br>
+<%= link_to 'starred repos', starred_path %><br>
 <%= link_to "Logout", '/logout' %>
 <% else %>
 <%= link_to "Login to Github", "/auth/github" %>

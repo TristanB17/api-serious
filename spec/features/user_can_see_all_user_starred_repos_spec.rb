@@ -5,6 +5,9 @@ describe 'a user' do
     it 'sees the number of starred repos of the user' do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit '/'
+
       stub_request(:get, "https://api.github.com/users/souffle/starred").
          with(
            headers: {
@@ -15,9 +18,9 @@ describe 'a user' do
            }).
          to_return(status: 200, body: "#{File.read('./spec/mock_requests/starred.json')}", headers: {})
 
+      click_on 'starred repos'
 
-      visit '/'
-
+      expect(current_path).to eq(starred_path)
       expect(page).to have_content('Starred Repos')
       expect(page).to have_content('2')
     end

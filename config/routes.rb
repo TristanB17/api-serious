@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   get '/followers', to: 'followers#index', as: :followers
   get '/following', to: 'followings#index', as: :following
+  get '/starred', to: 'starred#index', as: :starred 
 end

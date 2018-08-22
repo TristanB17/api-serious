@@ -1,0 +1,9 @@
+<h1>Total Starred Repos for <%= current_user.name %>: <%= @starred_repos.count %></h2>
+
+<% @starred_repos.each do |repo| %>
+  <%= repo.name %>
+  <%= repo.owner %>
+  <%= repo.url %>
+  <%= repo.date_created.strftime('%Y.%m.%d') %>
+  <%= repo.most_recently_updated.strftime('%Y.%m.%d') %>
+<% end %>
