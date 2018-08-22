@@ -1,9 +1,9 @@
 <% if current_user %>
-Welcome <%= current_user.name %>
+Welcome <%= current_user.name %><br>
+<img src="<%= current_user.image %>"><br>
+<%= link_to 'followers', followers_path %>
+  <br>
+<%= link_to "Logout", '/logout' %>
 <% else %>
 <%= link_to "Login to Github", "/auth/github" %>
-<% end %>
-
-<% if current_user %>
-<%= link_to "Logout", '/logout' %>
 <% end %>

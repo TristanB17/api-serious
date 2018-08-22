@@ -17,6 +17,12 @@ def stub_omniauth
                                                                 },
                                                                 'credentials' => {
                                                                   'token' => '1223344'
+                                                                },
+                                                                'extra' => {
+                                                                  'raw_info' => {
+                                                                    'login' => 'TristanB17',
+                                                                    'avartar_url' => 'boi.html'
+                                                                  }
                                                                 }
                                                               })
 end
@@ -61,6 +67,8 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  config.include FactoryBot::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
