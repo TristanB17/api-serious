@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
   get '/followers', to: 'followers#index', as: :followers
+  get '/following', to: 'followings#index', as: :following
 end

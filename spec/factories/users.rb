@@ -3,7 +3,7 @@ FactoryBot.define do
     provider { "github" }
     uid { "12345" }
     name { "boi" }
-    username { "TristanB17" }
+    username { "souffle" }
     token { ENV["TEST_TOKEN"] }
     image { 'guhguhguhguh.html' }
   end

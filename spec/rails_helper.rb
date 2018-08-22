@@ -5,22 +5,23 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'webmock/rspec'
 
 def stub_omniauth
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({'provider' => 'github',
                                                               'uid' => '12345',
                                                               'info' => {
-                                                                  'name' => 'Tristan',
-                                                                  'email' => 'hi@tristanbobistan.com',
-                                                                  'nickname' => 'TristanB17'
+                                                                  'name' => 'boi',
+                                                                  'email' => 'hi@boi.com',
+                                                                  'nickname' => 'boi'
                                                                 },
                                                                 'credentials' => {
-                                                                  'token' => '1223344'
+                                                                  'token' => ENV["TEST_TOKEN"]
                                                                 },
                                                                 'extra' => {
                                                                   'raw_info' => {
-                                                                    'login' => 'TristanB17',
+                                                                    'login' => 'souffle',
                                                                     'avartar_url' => 'boi.html'
                                                                   }
                                                                 }
@@ -62,6 +63,10 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.after(:each) do
+    WebMock.reset!
+  end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
