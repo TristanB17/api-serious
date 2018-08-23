@@ -3,6 +3,7 @@ Welcome <%= current_user.name %><br>
 <img src="<%= current_user.image %>"><br>
 <%= link_to 'followers', followers_path %><br>
 <%= link_to 'following', following_path %><br>
+<%= link_to 'your repos', repos_path %><br>
 <%= link_to 'starred repos', starred_path %><br>
 <%= link_to "Logout", '/logout' %>
 <% else %>

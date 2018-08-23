@@ -1,0 +1,9 @@
+<%= current_user.name %>'s Repos <br><br><br>
+
+<% @user_repos.each do |repo| %>
+  Name: <%= repo.name %><br>
+  Owner: <%= repo.owner %><br>
+  <a href="<%= repo.url %>">See Repo</a><br>
+  Date Created: <%= repo.date_created.strftime('%Y.%m.%d') %><br>
+  Date Most Recently Updated: <%= repo.most_recently_updated.strftime('%Y.%m.%d') %><br><br><br>
+<% end %>

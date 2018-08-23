@@ -1,5 +1,5 @@
 class GithubUserService
-  attr_reader :token, :username
+  attr_reader :user
 
   def initialize(user)
     @user = user
@@ -7,6 +7,18 @@ class GithubUserService
 
   def call_starred_repos
     @starred ||= get_json("/users/#{@user.username}/starred")
+  end
+
+  def call_user_repos
+    @repos ||= get_json("/users/#{@user.username}/repos")
+  end
+
+  def call_followers
+    @followers ||= get_json("/users/#{@user.username}/followers")
+  end
+
+  def call_followings
+    @followings ||= get_json("/users/#{@user.username}/following")
   end
 
   private
