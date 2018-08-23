@@ -1,0 +1,16 @@
+<%= current_user.name %>'s Recent Activities: <br><br><br>
+<% @user_recent_activities.each do |activity| %>
+  Affected Repository: <a href="<%= activity.url %>"><%= activity.repo %></a><br>
+  Event Type: <%= activity.type %><br>
+  Commit Message**: <%= activity.commit_messages %><br>
+  When: <%=activity.time.strftime("%Y.%m.%d at %I:%M%p") %><br><br>
+<% end %>
+
+
+
+
+
+
+
+
+**(applies only to 'Push' event types)

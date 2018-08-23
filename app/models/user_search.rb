@@ -28,4 +28,10 @@ class UserSearch
       Follower.new(follower)
     end
   end
+
+  def return_user_activities
+    @service.call_user_activities.map do |activity|
+      Activity.new(activity)
+    end
+  end
 end

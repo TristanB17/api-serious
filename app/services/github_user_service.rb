@@ -21,6 +21,10 @@ class GithubUserService
     @followings ||= get_json("/users/#{@user.username}/following")
   end
 
+  def call_user_activities
+    @user_activities ||= get_json("/users/#{@user.username}/events").take(20)
+  end
+
   private
   def conn
     Faraday.new("https://api.github.com") do |faraday|

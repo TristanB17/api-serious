@@ -15,14 +15,15 @@ describe 'a user' do
        	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
        	  'Authorization'=>'token bf5cd7486b2376642d1cb4db44a8b1e12397c65f',
        	  'User-Agent'=>'Faraday v0.12.2'
-           }).to_return(status: 200, body: "#{File.read('./spec/mock_requests/user_repos.json')}", headers: {})
+           }).
+         to_return(status: 200, body: "#{File.read('./spec/mock_requests/user_recent_activity.json')}", headers: {})
+         
+      click_on "your recent activity"
 
-      click_on 'your repos'
-
-      expect(current_path).to eq(repos_path)
-      expect(page).to have_content("#{user.name}'s Repos")
-      expect(page).to have_content("Date Created")
-      expect(page).to have_content('30')
+      expect(current_path).to eq(recent_activities_path)
+      expect(page).to have_content("#{user.name}'s Recent Activity")
+      expect(page).to have_content("Repo Affected:")
+      expect(page).to have_content('rails_engine')
     end
   end
 end
