@@ -35,12 +35,27 @@ class UserSearch
     end
   end
 
+  # def return_user_activities
+  #   user_commits = []
+  #   until user_commits.length == 10
+  #     @service.call_user_activities.map do |activity|
+  #       if commit_check(activity)
+  #         user_commits << Activity.new(activity)
+  #       end
+  #     end
+  #   end
+  # end
+  #
+  # def commit_check(activity)
+  #   activity[:payload][:commits].nil? == false && activity[:actor][:display_login] == @name
+  # end
+
   def return_user_organizations
     if @service.call_user_organizations.empty? == false
       @service.call_user_organizations.map do |org|
         Organization.new(org)
       end
-    else 
+    else
       "This user is not currently involved with any organizations"
     end
   end

@@ -8,7 +8,7 @@ describe 'a user' do
 
       visit '/'
 
-      stub_request(:get, "https://api.github.com/users/souffle/orgs").
+      stub_request(:get, "https://api.github.com/users/#{user.username}/orgs").
          with(
            headers: {
        	  'Accept'=>'*/*',
