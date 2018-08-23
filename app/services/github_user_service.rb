@@ -22,7 +22,7 @@ class GithubUserService
   end
 
   def call_user_activities
-    @user_activities ||= get_json("/users/#{@user.username}/events").take(20)
+    @user_activities ||= get_json("/users/#{@user.username}/events")
   end
 
   def call_user_organizations

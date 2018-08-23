@@ -29,10 +29,10 @@ def stub_omniauth
                                                                 'extra' => {
                                                                   'raw_info' => {
                                                                     'login' => 'souffle',
-                                                                    'avartar_url' => 'boi.html'
+                                                                    'avatar_url' => 'boi.html'
+                                                                    }
                                                                   }
-                                                                }
-                                                              })
+                                                                })
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
