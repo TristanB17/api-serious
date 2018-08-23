@@ -1,0 +1,7 @@
+<h2>Followers</h2>
+<% @github_followers.each do |follower| %>
+<div class="follower">
+  <p class="username"><%= follower.username %></p>
+  <img src="<%= follower.image %>">
+</div>
+<% end %>

@@ -1,0 +1,7 @@
+<h2> <%= current_user.name %> is currently following: </h2>
+<% @github_followings.each do |following| %>
+<div class="following">
+  <p class="username"><%= following.username %></p>
+  <img src="<%= following.image %>" alt="prof_pic">
+</div>
+<% end %>

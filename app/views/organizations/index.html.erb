@@ -1,0 +1,6 @@
+<%= current_user.name %>'s Organizations: <br><br><br>
+  <% @user_organizations.each do |organization| %>
+    Name: <%= organization.name %><br>
+    <img src="<%= organization.image %>" alt=""><br>
+    Description: <%= organization.description %><br><br>
+  <% end %>

@@ -1,9 +1,13 @@
 <% if current_user %>
-Welcome <%= current_user.name %>
+Welcome <%= current_user.name %><br>
+<img src="<%= current_user.image %>"><br>
+<%= link_to 'followers', followers_path %><br>
+<%= link_to 'following', following_path %><br>
+<%= link_to 'starred repos', starred_path %><br>
+<%= link_to 'your repos', repos_path %><br>
+<%= link_to 'your organizations', organizations_path %><br>
+<%= link_to 'your recent activity', recent_activities_path %><br>
+<%= link_to "Logout", '/logout' %>
 <% else %>
 <%= link_to "Login to Github", "/auth/github" %>
-<% end %>
-
-<% if current_user %>
-<%= link_to "Logout", '/logout' %>
 <% end %>
