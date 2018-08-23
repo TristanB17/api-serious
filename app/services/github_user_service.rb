@@ -25,6 +25,10 @@ class GithubUserService
     @user_activities ||= get_json("/users/#{@user.username}/events").take(20)
   end
 
+  def call_user_organizations
+    @user_organizations ||= get_json("/users/#{@user.username}/orgs")
+  end
+
   private
   def conn
     Faraday.new("https://api.github.com") do |faraday|

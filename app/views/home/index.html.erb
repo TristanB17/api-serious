@@ -5,6 +5,7 @@ Welcome <%= current_user.name %><br>
 <%= link_to 'following', following_path %><br>
 <%= link_to 'starred repos', starred_path %><br>
 <%= link_to 'your repos', repos_path %><br>
+<%= link_to 'your organizations', organizations_path %><br>
 <%= link_to 'your recent activity', recent_activities_path %><br>
 <%= link_to "Logout", '/logout' %>
 <% else %>

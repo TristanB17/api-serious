@@ -34,4 +34,14 @@ class UserSearch
       Activity.new(activity)
     end
   end
+
+  def return_user_organizations
+    if @service.call_user_organizations.empty? == false
+      @service.call_user_organizations.map do |org|
+        Organization.new(org)
+      end
+    else 
+      "This user is not currently involved with any organizations"
+    end
+  end
 end
