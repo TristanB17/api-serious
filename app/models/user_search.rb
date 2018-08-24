@@ -1,5 +1,5 @@
 class UserSearch
-  attr_reader :service, :token
+  attr_reader :service
 
   def initialize(user)
     @service ||= GithubUserService.new(user)
