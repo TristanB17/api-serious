@@ -2,6 +2,7 @@
 <% @github_followers.each do |follower| %>
 <div class="follower">
   <p class="username"><%= follower.username %></p>
-  <img src="<%= follower.image %>">
+  <img src="<%= follower.image %>"><br>
+  <%= link_to "#{follower.username}'s recent activities", follower_activities_path(follower.username) %><br><br>
 </div>
 <% end %>

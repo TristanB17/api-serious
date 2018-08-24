@@ -1,5 +1,5 @@
 class UserSearch
-  attr_reader :service
+  attr_reader :service, :token
 
   def initialize(user)
     @service ||= GithubUserService.new(user)
@@ -44,4 +44,10 @@ class UserSearch
       "This user is not currently involved with any organizations"
     end
   end
+
+  def followings_activities(following_username)
+    following_activities = @service.call_following_activities(following_username).pop(5).sort_by { |commit| commit[:commit][:author][:date] }.reverse
+    following_activities.map { |activity| Commit.new(activity) }
+  end
+
 end
