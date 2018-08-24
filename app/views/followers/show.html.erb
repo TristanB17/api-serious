@@ -1,0 +1,6 @@
+<% @github_follower.each do |commit| %>
+  Repo Affected: <%= commit.repo %><br>
+  Link to Commit: <a href="<%= commit.url %>"><%= commit.url %></a><br>
+  Time: <%= commit.time.strftime("%Y.%m.%d at %I:%M%p") %><br>
+  Commit Message: <%= commit.commit_message %><br><br>
+<% end %>
