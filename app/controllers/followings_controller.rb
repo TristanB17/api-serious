@@ -1,6 +1,5 @@
 class FollowingsController < ApplicationController
   def index
-    followings = UserSearch.new(current_user)
-    @github_followings = followings.return_followings
+    @github_followings = UserSearch.new(current_user)
   end
 end
